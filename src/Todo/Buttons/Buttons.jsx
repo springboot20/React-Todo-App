@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faSave, faScissors } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faSave } from '@fortawesome/free-solid-svg-icons'
 
 function AddButton() {
 	return (
@@ -31,13 +31,7 @@ const SaveButton = () => {
 const ResetButton = ({ children }) => {
 	return (
 		<React.Fragment>
-			<button
-				type="submit"
-				className="reset-todo-btn"
-			>
-				{children}
-				<FontAwesomeIcon icon={faScissors} className='clear-icon' />
-			</button>
+			<input type='button' value={children} className='reset-todo-btn'/>
 		</React.Fragment>
 	);
 }
