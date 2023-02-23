@@ -1,8 +1,8 @@
 import React from "react";
-import AddButton from '../Buttons/Buttons'
+import AddButton, { SaveButton } from '../Buttons/Buttons'
 import './input.css'
 
-function TodoInput({ todoItem, handleChange, error }) {
+function TodoInput({ todoItem, handleChange, error, toggle }) {
 	return (
 		<React.Fragment>
 			<div className="form-group">
@@ -13,7 +13,7 @@ function TodoInput({ todoItem, handleChange, error }) {
 					placeholder="✍ Please enter a todo to add here...."
 					className={`form-control ${error ? "bg-danger text-white" : ""}`}
 				/>
-				<AddButton></AddButton>
+				{toggle ? <AddButton /> : <SaveButton />}
 			</div>
 		</React.Fragment>
 	);

@@ -16,15 +16,36 @@ function Todo() {
 	const [todos, setTodos] = useState(getLocalItem());
 	const [todoItem, setTodoItem] = useState("");
 	const [error, setError] = useState(false);
+	const [toggle, setToggle] = useState(true)
+	const [isEdit, setIsEdit] = useState(null)
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		if (todoItem) {
-			setError(false);
+		if (!todoItem) {
+			setError(true);
+			setTodoItem("");
+
+			generateMsg('Please enter a todo to add ......')
+			setTimeout(() => {
+				document.querySelector('.error-container').remove()
+			}, 3000)
+		} else if (todoItem && !toggle) {
+			setTodos(
+				todos.map((todo) => {
+					if (todo.id === isEdit) {
+						return { ...todo, todo: todoItem }
+					}
+					return todo
+				})
+			)
+			setTodoItem('')
+			setToggle(true)
+			setIsEdit(null)
+
+		} else {
 			let uniqueId =
 				new Date().getTime().toString(36) + new Date().getUTCMilliseconds();
-
 			const newTodoItem = {
 				id: uniqueId,
 				todo: todoItem,
@@ -32,13 +53,7 @@ function Todo() {
 			};
 
 			setTodos([...todos, newTodoItem]);
-			setTodoItem("");
-		} else {
-			setError(true);
-			generateMsg('Please enter a todo to add ......')
-			setTimeout(() => {
-				document.querySelector('.error-container').remove()
-			}, 3000)
+			setError(false);
 			setTodoItem("");
 		}
 	};
@@ -56,6 +71,17 @@ function Todo() {
 		msgContainer.appendChild(message)
 
 		todoContainer.insertBefore(msgContainer, imageContainer)
+	}
+
+	const handleEdit = (id) => {
+		let editedTodo = todos.find((todo) => {
+			return todo.id === id
+		})
+
+		console.log(editedTodo)
+		setTodoItem(editedTodo.todo)
+		setToggle(false)
+		setIsEdit(id)
 	}
 
 	useEffect(() => {
@@ -96,6 +122,7 @@ function Todo() {
 						todoItem={todoItem}
 						handleChange={(e) => { setTodoItem(e.target.value) }}
 						error={error}
+						toggle={toggle}
 					/>
 				</form>
 			</div>
@@ -104,7 +131,11 @@ function Todo() {
 
 			<div className="todoList-container">
 				<div className="row">
-					<TodoList todos={todos} setTodos={setTodos} />
+					<TodoList
+						todos={todos}
+						setTodos={setTodos}
+						handleEdit={handleEdit}
+					/>
 				</div>
 			</div>
 		</div>

@@ -2,7 +2,6 @@ ol {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	counter-reset: counter;
 }
 
 ol li {
@@ -11,7 +10,6 @@ ol li {
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 10px;
-	counter-increment: counter;
 	background: #5434de;
 	padding: 0.75rem 0.85rem;
 	color: hsl(0, 0%, 100%);
@@ -35,54 +33,32 @@ ol li span.todo-name {
 	margin-left: 2.5em;
 }
 
-ol li::before {
-	content: counter(counter);
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 3.5rem;
-	height: 100%;
-	background: #c12cea;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #fffccc;
+#check-btn{
+	padding: 75px;
 }
 
 ol li.todo>div.action {
 	display: inline;
 }
 
-ol li:hover {
-	background: #fff;
-	color: #7468b4;
-}
-
-ol li:hover div.action button .check-icon {
+div.action button .edit-icon {
 	color: rgb(56, 230, 79);
 	font-size: 1.15em;
-	font-weight: bolder
+	font-weight: bolder;
 }
 
 div.action button .delete-icon {
-	display: none;
-}
-
-ol li:hover div.action button .delete-icon {
 	color: hsl(0, 86%, 46%);
 	font-weight: bolder;
-	display: block;
 }
 
 div.action button {
 	background: transparent;
 	font-size: 1.1em;
+	text-align: center;
 	border: none;
 	cursor: pointer;
 	outline: none;
-}
-
-div.action button {
 	color: #fff;
 	margin-right: 1rem;
 	-webkit-transition: all 500ms ease;
@@ -90,10 +66,6 @@ div.action button {
 	-ms-transition: all 500ms ease;
 	-o-transition: all 500ms ease;
 	transition: all 500ms ease;
-}
-
-ol li:hover .checked {
-	color: #494e52;
 }
 
 .checked {

@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faSave } from '@fortawesome/free-solid-svg-icons'
 
 function AddButton() {
 	return (
@@ -15,4 +15,18 @@ function AddButton() {
 	);
 }
 
+const SaveButton = () => {
+	return (
+		<React.Fragment>
+			<button
+				type="submit"
+				className="save-todo-btn"
+			>
+				<FontAwesomeIcon icon={faSave} />
+			</button>
+		</React.Fragment>
+	);
+}
+
 export default AddButton;
+export {SaveButton}

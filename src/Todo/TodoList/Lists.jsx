@@ -1,8 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashCan, faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faTrashCan, faEdit } from '@fortawesome/free-solid-svg-icons'
 
-function Lists({ todos, setTodos }) {
+function Lists({ todos, setTodos, handleEdit }) {
 	const handleDelete = (id) => {
 		let newTodo = todos.filter((todo) => {
 			console.log(todo);
@@ -26,7 +26,18 @@ function Lists({ todos, setTodos }) {
 		<React.Fragment>
 			{todos.map(({ id, todo, completed }) => (
 				<li key={id} className="todo">
-					<span className={`todo-name ${completed ? "checked" : ""}`}>{todo}</span>
+					<div className='todos'>
+						<input
+							type="checkbox"
+							onChange={() => handleCheck(id)}
+							id='check-btn'
+						/>
+						<span
+							className={`todo-name ${completed ? "checked" : ""}`}
+						>
+							{todo}
+						</span>
+					</div>
 					<div className="action">
 						<button
 							onClick={() => handleDelete(id)}
@@ -34,9 +45,9 @@ function Lists({ todos, setTodos }) {
 							<FontAwesomeIcon icon={faTrashCan} className="delete-icon" />
 						</button>
 						<button
-							onClick={() => handleCheck(id)}
+							onClick={() => handleEdit(id)}
 						>
-							<FontAwesomeIcon icon={faCheck} className="check-icon" />
+							<FontAwesomeIcon icon={faEdit} className='edit-icon' />
 						</button>
 					</div>
 				</li>
