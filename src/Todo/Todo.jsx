@@ -3,6 +3,7 @@ import TodoInput from "./Input/TodoInput";
 import TodoList from "./TodoList/TodoList";
 import todoImage from './todo.png'
 import './Todo.css'
+import { ResetButton } from "./Buttons/Buttons";
 
 const getLocalItem = () => {
 	if (localStorage.getItem("todos") === null) {
@@ -103,6 +104,9 @@ function Todo() {
 		console.log(todos);
 	}, [todos]);
 
+	const clearTodos = () => {
+		setTodos([])
+	}
 	return (
 		<div className="todo-container">
 
@@ -137,6 +141,12 @@ function Todo() {
 						handleEdit={handleEdit}
 					/>
 				</div>
+			</div>
+
+			<div className="reset-btn-container">
+				<ResetButton>
+					Clear Todolist
+				</ResetButton>
 			</div>
 		</div>
 	);
