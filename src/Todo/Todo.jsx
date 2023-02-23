@@ -105,7 +105,6 @@ function Todo() {
 	}, [todos]);
 
 	const handleClearTodoList = () => {
-		alert('clickded')
 		setTodos([])
 	}
 
