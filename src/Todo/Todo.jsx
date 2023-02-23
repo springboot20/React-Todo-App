@@ -107,6 +107,7 @@ function Todo() {
 	const clearTodos = () => {
 		setTodos([])
 	}
+	
 	return (
 		<div className="todo-container">
 
@@ -144,7 +145,9 @@ function Todo() {
 			</div>
 
 			<div className="reset-btn-container">
-				<ResetButton>
+				<ResetButton
+					onClick={clearTodos}
+				>
 					Clear Todolist
 				</ResetButton>
 			</div>
