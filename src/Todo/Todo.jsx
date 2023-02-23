@@ -104,10 +104,11 @@ function Todo() {
 		console.log(todos);
 	}, [todos]);
 
-	const clearTodos = () => {
+	const handleClearTodoList = () => {
+		alert('clickded')
 		setTodos([])
 	}
-	
+
 	return (
 		<div className="todo-container">
 
@@ -146,7 +147,7 @@ function Todo() {
 
 			<div className="reset-btn-container">
 				<ResetButton
-					onClick={clearTodos}
+					handleClearTodoList={handleClearTodoList}
 				>
 					Clear Todolist
 				</ResetButton>
