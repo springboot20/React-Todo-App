@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashCan, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt, faEdit } from '@fortawesome/fontawesome-free-regular'
 
 function Lists({ todos, setTodos, handleEdit }) {
 	const handleDelete = (id) => {
@@ -47,7 +47,7 @@ function Lists({ todos, setTodos, handleEdit }) {
 						<button
 							onClick={() => handleDelete(id)}
 						>
-							<FontAwesomeIcon icon={faTrashCan} className="delete-icon" />
+							<FontAwesomeIcon icon={faTrashAlt} className="delete-icon" />
 						</button>
 					</div>
 				</li>
