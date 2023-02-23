@@ -11,7 +11,7 @@ function TodoInput({ todoItem, handleChange, error, toggle }) {
 					value={todoItem}
 					onChange={handleChange}
 					placeholder="✍ Please enter a todo to add here...."
-					className={`form-control ${error ? "bg-danger text-white" : ""}`}
+					className={`form-control ${error ? "error" : ""}`}
 				/>
 				{toggle ? <AddButton /> : <SaveButton />}
 			</div>
