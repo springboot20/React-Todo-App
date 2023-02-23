@@ -40,14 +40,14 @@ function Lists({ todos, setTodos, handleEdit }) {
 					</div>
 					<div className="action">
 						<button
-							onClick={() => handleDelete(id)}
-						>
-							<FontAwesomeIcon icon={faTrashCan} className="delete-icon" />
-						</button>
-						<button
 							onClick={() => handleEdit(id)}
 						>
 							<FontAwesomeIcon icon={faEdit} className='edit-icon' />
+						</button>
+						<button
+							onClick={() => handleDelete(id)}
+						>
+							<FontAwesomeIcon icon={faTrashCan} className="delete-icon" />
 						</button>
 					</div>
 				</li>
