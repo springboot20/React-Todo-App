@@ -15,11 +15,7 @@ ol li {
 	color: hsl(0, 0%, 100%);
 	font-weight: 600;
 	font-size: 1.3em;
-	-webkit-border-radius: 0.58rem;
-	-moz-border-radius: 0.58rem;
-	-ms-border-radius: 0.58rem;
-	-o-border-radius: 0.58rem;
-	border-radius: 0.58rem;
+	border-radius: 0.28rem;
 	box-shadow: 0 0 5px rgba(0, 0, 0, .35);
 	-webkit-transition: all 700ms ease;
 	-moz-transition: all 700ms ease;
@@ -27,6 +23,23 @@ ol li {
 	-o-transition: all 700ms ease;
 	transition: all 700ms ease;
 	overflow: hidden;
+}
+
+ol li::before{
+	position: absolute;
+	content: '';
+	height: 100%;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 0.35rem;
+}
+ol li:nth-child(even)::before{
+	background: rgba(90, 236, 23, 0.972);
+}
+
+ol li:nth-child(odd)::before {
+	background: rgba(236, 108, 23, 0.972);
 }
 
 ol li span.todo-name {
@@ -71,5 +84,6 @@ div.action button {
 .checked {
 	text-decoration: line-through;
 	opacity: 0.8;
+	color: red;
 	font-weight: 700;
 }
