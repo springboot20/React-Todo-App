@@ -28,10 +28,15 @@ const SaveButton = () => {
 	);
 }
 
-const ResetButton = ({ children }) => {
+const ResetButton = ({ children, handleClearTodoList }) => {
 	return (
 		<React.Fragment>
-			<input type='button' value={children} className='reset-todo-btn'/>
+			<input
+				type='button'
+				value={children}
+				className='reset-todo-btn'
+				onClick={handleClearTodoList}
+			/>
 		</React.Fragment>
 	);
 }
